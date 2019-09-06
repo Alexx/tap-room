@@ -24,6 +24,7 @@ function KegList() {
           brand={keg.brand}
           price={keg.price}
           alcoholContent={keg.alcoholContent}
+          inventory={keg.inventory}
           key={index}
         />
       )}
