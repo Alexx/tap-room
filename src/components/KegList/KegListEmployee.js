@@ -1,17 +1,19 @@
 import React from 'react';
-import KegListTitle from './KegListTitle';
+import KegListTitleEmployee from './KegListTitleEmployee';
 import KegListItemEmployee from './KegListItemEmployee';
 import kegData from '../../KegData'
 
 let myStyle = {
   borderRadius: '40px',
-  width: "50%"
+  width: '50%',
+  marginRight: 'auto',
+  marginLeft: 'auto'
 };
 
 function KegListEmployee() {
   return (
     <div style={myStyle} className="Keg-list">
-      <KegListTitle/>
+      <KegListTitleEmployee/>
       <hr/>
       {kegData.map((keg, index) =>
         <KegListItemEmployee 

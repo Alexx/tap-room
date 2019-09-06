@@ -5,7 +5,9 @@ import kegData from '../../KegData'
 
 let myStyle = {
   borderRadius: '40px',
-  width: "50%"
+  width: '50%',
+  marginRight: 'auto',
+  marginLeft: 'auto'
 };
 
 function KegList() {

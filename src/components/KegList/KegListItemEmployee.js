@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button'
 
 const itemStyle = {
   display: 'inline-block'
@@ -31,11 +32,12 @@ function KegListItem(props) {
       <div style={itemStyle}>
         <h3>{props.name}</h3>
         by {props.brand}<br/>
-        ${props.price}<br/>
+        ${props.price}/pint<br/>
         {props.alcoholContent}% alcohol content<br/>
         </div>
         <div style={pintStyle}>
-          Pints: <span style={style}>{props.inventory}</span>/124
+          Pints: <span style={style}>{props.inventory}</span>/124<br/>
+          <Button className="edit-button" variant="dark">Edit</Button>
         </div>
       <hr/>
     </div>

@@ -7,7 +7,7 @@ function KegListItemEmployee(props) {
     <div className="Keg-list-item">
         <h3>{props.name}</h3>
         by {props.brand}<br/>
-        ${props.price}<br/>
+        ${props.price}/pint<br/>
         {props.alcoholContent}% alcohol content<br/>
       <hr/>
     </div>

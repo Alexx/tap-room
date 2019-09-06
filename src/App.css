@@ -15,9 +15,8 @@
   margin: 0;
 }
 
-.Keg-list-item:hover {
-  background-color: #167c8c;
-  border-radius: 40px;
+.edit-button {
+  margin-top: 55%;
 }
 
 @keyframes App-logo-spin {
