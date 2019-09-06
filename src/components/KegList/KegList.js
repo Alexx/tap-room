@@ -1,7 +1,7 @@
 import React from 'react';
 import KegListTitle from './KegListTitle'
 
-function App() {
+function KegList() {
   return (
     <div className="Keg-list">
       <KegListTitle/>
@@ -9,4 +9,4 @@ function App() {
   );
 }
 
-export default App;
+export default KegList;
