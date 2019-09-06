@@ -12,12 +12,12 @@ function UserNav(){
 
   return (
     <Navbar style={myStyle} expand="lg">
-      <Navbar.Brand href="#home"><SiteLogo/></Navbar.Brand>
+      <Navbar.Brand href="/"><SiteLogo/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         </Nav>
-        <SignIn />
+        <SignIn/>
       </Navbar.Collapse>
     </Navbar>
 

@@ -1,9 +1,13 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function SignIn () {
   return(
-    <Button variant="info">Sign In</Button>
+    <DropdownButton variant="info" id="dropdown-basic-button" title="Sign In">
+    <Dropdown.Item href="/">Patron</Dropdown.Item>
+    <Dropdown.Item href="/employee">Employee</Dropdown.Item>
+  </DropdownButton>
   );
 }
 

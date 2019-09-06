@@ -5,9 +5,9 @@ function KegListItem(props) {
   return (
     <div className="Keg-list-item">
       <h3>{props.name}</h3>
-      <p>{props.brand}</p>
-      <p>${props.price}</p>
-      <p>{props.alcoholContent}% alcohol content</p>
+      by {props.brand}<br/>
+      ${props.price}<br/>
+      {props.alcoholContent}% alcohol content
       <hr/>
     </div>
   );

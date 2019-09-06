@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom'
 import '../App.css';
 import Container from 'react-bootstrap/Container';
 import UserNav from './Navbar/UserNav';
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       <UserNav/>
       <Container>
-        <KegList/>
+            <Route exact path='/' component={KegList}/>
+            <Route exact path='/employee' component={UserNav}/>
       </Container>
     </div>
   );
