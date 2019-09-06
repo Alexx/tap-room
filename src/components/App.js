@@ -4,14 +4,17 @@ import '../App.css';
 import Container from 'react-bootstrap/Container';
 import UserNav from './Navbar/UserNav';
 import KegList from './KegList/KegList';
+import KegListEmployee from './KegList/KegListEmployee';
 
 function App() {
   return (
     <div className="App">
       <UserNav/>
       <Container>
-            <Route exact path='/' component={KegList}/>
-            <Route exact path='/employee' component={UserNav}/>
+        <Switch>
+          <Route exact path='/' component={KegList}/>
+          <Route exact path='/employee' component={KegListEmployee}/>
+        </Switch>
       </Container>
     </div>
   );

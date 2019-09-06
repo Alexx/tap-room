@@ -1,6 +1,6 @@
 import React from 'react';
 import KegListTitle from './KegListTitle';
-import KegListItem from './KegListItem';
+import KegListItemEmployee from './KegListItemEmployee';
 import kegData from '../../KegData'
 
 let myStyle = {
@@ -8,17 +8,18 @@ let myStyle = {
   width: "50%"
 };
 
-function KegList() {
+function KegListEmployee() {
   return (
     <div style={myStyle} className="Keg-list">
       <KegListTitle/>
       <hr/>
       {kegData.map((keg, index) =>
-        <KegListItem 
+        <KegListItemEmployee 
           name={keg.name}
           brand={keg.brand}
           price={keg.price}
           alcoholContent={keg.alcoholContent}
+          inventory={keg.inventory}
           key={index}
         />
       )}
@@ -26,4 +27,4 @@ function KegList() {
   );
 }
 
-export default KegList;
+export default KegListEmployee;
