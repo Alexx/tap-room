@@ -5,10 +5,10 @@ const myStyle = {
   backgroundColor: '#1b8ea1'
 };
 
-function KegListTitle() {
+function KegAddTitle() {
   return (
-      <h1 style={myStyle} className="Keg-list">Kegs</h1>
+      <h1 style={myStyle} className="Keg-list">Add Keg</h1>
   );
 }
 
-export default KegListTitle;
+export default KegAddTitle;

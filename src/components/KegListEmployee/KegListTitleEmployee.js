@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 
 const myStyle = {
   borderRadius: '40px 40px 0px 0px ',
-  display: 'inline-block'
+  display: 'inline-block',
 };
 
 const buttonStyle = {
@@ -16,7 +16,7 @@ function KegListTitleEmployee() {
   return (
     <div>
       <h1 style={myStyle} className="Keg-list">Kegs</h1>
-      <Button style={buttonStyle} variant="dark">Add</Button>
+      <Button href="/keg_add" style={buttonStyle} variant="dark">Add</Button>
     </div>
   );
 }

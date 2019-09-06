@@ -4,8 +4,8 @@ import Logo from '../../img/logo.png';
 
 function SiteLogo(){
   var myStyle = {
-    height: '75px',
-    width: '200px',
+    height: '50px',
+    width: '150px',
     float: 'left',
   };
   return (
