@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function KegAddForm() {
+function KegEditForm() {
   return (
     <Form>
     <Form.Group controlId="formName">
@@ -32,4 +32,4 @@ function KegAddForm() {
   );
 }
 
-export default KegAddForm;
+export default KegEditForm;

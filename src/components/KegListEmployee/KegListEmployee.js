@@ -1,6 +1,7 @@
 import React from 'react';
 import KegListTitleEmployee from './KegListTitleEmployee';
 import KegListItemEmployee from './KegListItemEmployee';
+import KegListEmployeeButton from './KegListEmployeeButton';
 import kegData from '../../KegData';
 
 let myStyle = {
@@ -28,6 +29,7 @@ function KegListEmployee() {
           key={index}
         />
       )}
+      <KegListEmployeeButton/>
     </div>
   );
 }

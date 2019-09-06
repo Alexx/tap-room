@@ -37,7 +37,7 @@ function KegListItem(props) {
         </div>
         <div style={pintStyle}>
           Pints: <span style={style}>{props.inventory}</span>/124<br/>
-          <Button className="edit-button" variant="dark">Edit</Button>
+          <Button href="/keg_edit" className="edit-button" variant="dark">Edit</Button>
         </div>
       <hr/>
     </div>
