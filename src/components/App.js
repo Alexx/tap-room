@@ -8,12 +8,10 @@ import KegList from './KegList/KegList'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <UserNav/>
         <Container>
           <KegList/>
         </Container>
-      </header>
     </div>
   );
 }
