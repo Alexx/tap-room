@@ -16,7 +16,7 @@ function KegAdd(props) {
   return (
     <div style={myStyle} className="Keg-add">
       <KegAddTitle/>
-      <KegAddForm onNewKeg={props.onNewKeg} kegData={props.kegData}/>
+      <KegAddForm onNewKeg={props.onNewKeg} data={props.data}/>
     </div>
   );
 }

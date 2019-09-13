@@ -13,29 +13,34 @@ class KegAddForm extends Component {
     this.state =
     {
       keg: {
-        kegName: "",
-        kegBrand: "",
-        kegPrice: "",
-        kegAlcohol: ""
+        id: "",
+        key: "",
+        name: "",
+        brand: "",
+        price: "",
+        alcoholContent: ""
       }
     }
   }
 
-
-  handleNewTicketSubmission = (event) => {
+  handleNewKegSubmit = (event) => {
     event.preventDefault();
-    this.props.onNewKeg(this.stat.keg)
-  };
-
-  handleUpdateNewKeg = (event) => {
     let newState = this.state;
-    newState.newKeg = event.target.value;
+    console.log("handleNewKegSubmit props = ", this.props);
+    newState.keg.id = this.props.data.nextKegId;
+    newState.keg.key = this.props.data.nextKegId;
+    newState.keg.name = _name.value;
+    newState.keg.brand = _brand.value;
+    newState.keg.price = parseFloat(_price.value);
+    newState.keg.alcoholContent = parseFloat(_alcoholContent.value);
+
     this.setState(newState);
-  }
+    this.props.onNewKeg(this.state.keg)
+  };
 
   render() {
     return (
-      <Form onSubmit={this.handleNewTicketSubmission}>
+      <Form onSubmit={this.handleNewKegSubmit}>
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control id="name" ref={(input) => {
