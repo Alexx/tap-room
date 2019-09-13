@@ -7,7 +7,7 @@ const myStyle = {
 
 function KegAddTitle() {
   return (
-      <h1 style={myStyle} className="Keg-list">Add Keg</h1>
+    <h1 style={myStyle} className="Keg-list">Add Keg</h1>
   );
 }
 

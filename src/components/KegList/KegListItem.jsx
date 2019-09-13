@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 const itemStyle = {
   display: 'inline-block'
-}
+};
 
 const pintStyle = {
   float: 'right',
   marginRight: '1rem'
-}
+};
 
 const pintNormal = {
   color: 'white'
-}
+};
 
 const pintLow = {
   color: 'red'
-}
+};
 
 function KegListItemEmployee(props) {
   let style;
@@ -25,7 +25,7 @@ function KegListItemEmployee(props) {
   } else {
     style = pintNormal;
   }
-  
+
   return (
     <div className="Keg-list-item">
       <div style={itemStyle}>
@@ -33,10 +33,10 @@ function KegListItemEmployee(props) {
         by {props.brand}<br/>
         ${props.price}/pint<br/>
         {props.alcoholContent}% alcohol content<br/>
-        </div>
-        <div style={pintStyle}>
-          Pints: <span style={style}>{props.inventory}</span>/124
-        </div>
+      </div>
+      <div style={pintStyle}>
+        Pints: <span style={style}>{props.inventory}</span>/124
+      </div>
       <hr/>
     </div>
   );

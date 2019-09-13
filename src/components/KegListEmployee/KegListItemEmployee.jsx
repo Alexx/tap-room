@@ -4,20 +4,20 @@ import Button from 'react-bootstrap/Button';
 
 const itemStyle = {
   display: 'inline-block'
-}
+};
 
 const pintStyle = {
   float: 'right',
   marginRight: '1rem'
-}
+};
 
 const pintNormal = {
   color: 'white'
-}
+};
 
 const pintLow = {
   color: 'red'
-}
+};
 
 function KegListItem(props) {
   let style;
@@ -26,7 +26,7 @@ function KegListItem(props) {
   } else {
     style = pintNormal;
   }
-  
+
   return (
     <div className="Keg-list-item">
       <div style={itemStyle}>
@@ -34,11 +34,11 @@ function KegListItem(props) {
         by {props.brand}<br/>
         ${props.price}/pint<br/>
         {props.alcoholContent}% alcohol content<br/>
-        </div>
-        <div style={pintStyle}>
-          Pints: <span style={style}>{props.inventory}</span>/124<br/>
-          <Button href="/keg_edit" className="edit-button" variant="dark">Edit</Button>
-        </div>
+      </div>
+      <div style={pintStyle}>
+        Pints: <span style={style}>{props.inventory}</span>/124<br/>
+        <Button href="/keg_edit" className="edit-button" variant="dark">Edit</Button>
+      </div>
       <hr/>
     </div>
   );

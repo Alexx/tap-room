@@ -5,7 +5,7 @@ const buttonStyle = {
   marginRight: 'auto',
   marginLeft: 'auto',
   width: '25%'
-}
+};
 
 function KegListTitleEmployee() {
   return (

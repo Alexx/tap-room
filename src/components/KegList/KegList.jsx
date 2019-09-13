@@ -18,7 +18,7 @@ function KegList(props) {
       <KegListTitle/>
       <hr/>
       {props.kegData.map((keg, index) =>
-        <KegListItem 
+        <KegListItem
           name={keg.name}
           brand={keg.brand}
           price={keg.price}

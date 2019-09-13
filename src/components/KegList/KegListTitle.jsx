@@ -7,7 +7,7 @@ const myStyle = {
 
 function KegListTitle() {
   return (
-      <h1 style={myStyle} className="Keg-list">Kegs</h1>
+    <h1 style={myStyle} className="Keg-list">Kegs</h1>
   );
 }
 

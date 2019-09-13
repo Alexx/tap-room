@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       kegData: [
         {
+          id: 1,
           name: 'Hyper Bomb',
           brand: 'Galax',
           price: 3.99,
@@ -21,6 +22,7 @@ class App extends Component {
           inventory: 75
         },
         {
+          id: 2,
           name: 'Tracks',
           brand: 'Green Woods',
           price: 3.79,
@@ -28,6 +30,7 @@ class App extends Component {
           inventory: 103
         },
         {
+          id: 3,
           name: 'Cashin',
           brand: 'Pimplin',
           price: 5.29,
@@ -35,6 +38,7 @@ class App extends Component {
           inventory: 63
         },
         {
+          id: 4,
           name: 'Sasquatch',
           brand: 'Twisties',
           price: 4.19,
@@ -45,6 +49,9 @@ class App extends Component {
     };
   }
 
+  // handleSellPint = () => {
+  //   const updateInventory = this
+  // }
 
   render() {
     return (
@@ -52,8 +59,8 @@ class App extends Component {
         <UserNav/>
         <Container>
           <Switch>
-          <Route exact path='/' render={()=><KegList kegData={this.state.kegData}/>} />
-            <Route exact path='/employee' render={()=><KegListEmployee kegData={this.state.kegData}/>} />
+            <Route exact path='/' render={() => <KegList kegData={this.state.kegData}/>}/>
+            <Route exact path='/employee' render={() => <KegListEmployee kegData={this.state.kegData}/>}/>
             <Route exact path='/keg_add' component={KegAdd}/>
             <Route exact path='/keg_edit' component={KegEdit}/>
           </Switch>

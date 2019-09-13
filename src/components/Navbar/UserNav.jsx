@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import SignIn from './SignIn';
 import SiteLogo from './SiteLogo';
 
-function UserNav(){
+function UserNav() {
 
   let myStyle = {
     background: 'none'
@@ -13,14 +13,13 @@ function UserNav(){
   return (
     <Navbar style={myStyle} expand="lg">
       <Navbar.Brand href="/"><SiteLogo/></Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         </Nav>
         <SignIn/>
       </Navbar.Collapse>
     </Navbar>
-
   );
 }
 
