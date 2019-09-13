@@ -2,7 +2,6 @@ import React from 'react';
 import KegListTitleEmployee from './KegListTitleEmployee';
 import KegListItemEmployee from './KegListItemEmployee';
 import KegListEmployeeButton from './KegListEmployeeButton';
-import kegData from '../../KegData';
 
 let myStyle = {
   borderRadius: '40px',
@@ -14,12 +13,12 @@ let myStyle = {
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3)'
 };
 
-function KegListEmployee() {
+function KegListEmployee(props) {
   return (
     <div style={myStyle} className="Keg-list">
       <KegListTitleEmployee/>
       <hr/>
-      {kegData.map((keg, index) =>
+      {props.kegData.map((keg, index) =>
         <KegListItemEmployee 
           name={keg.name}
           brand={keg.brand}

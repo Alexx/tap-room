@@ -1,7 +1,6 @@
 import React from 'react';
 import KegListTitle from './KegListTitle';
 import KegListItem from './KegListItem';
-import kegData from '../../KegData';
 
 const myStyle = {
   borderRadius: '40px',
@@ -13,12 +12,12 @@ const myStyle = {
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3)'
 };
 
-function KegList() {
+function KegList(props) {
   return (
     <div style={myStyle} className="Keg-list">
       <KegListTitle/>
       <hr/>
-      {kegData.map((keg, index) =>
+      {props.kegData.map((keg, index) =>
         <KegListItem 
           name={keg.name}
           brand={keg.brand}
