@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nextKegId: 4,
+      nextKegId: 5,
       kegData: [
         {
           id: 1,
@@ -51,8 +51,8 @@ class App extends Component {
   }
 
   handleNewKeg = (newKeg) => {
-    let newState = this.state;
-    newState.kegData.push(newKeg);
+    let newState = this.state.kegData.slice();
+    newState.push(newKeg);
     newState.nextKegId++;
     this.setState(newState);
     console.log(this.state);

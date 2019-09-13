@@ -6,37 +6,38 @@ let _name = null;
 let _brand = null;
 let _price = null;
 let _alcoholContent = null;
+let keg = {
+  id: "",
+  name: "",
+  brand: "",
+  price: "",
+  alcoholContent: ""
+}
 
 class KegAddForm extends Component {
   constructor(props) {
     super(props);
-    this.state =
-    {
-      keg: {
-        id: "",
-        key: "",
-        name: "",
-        brand: "",
-        price: "",
-        alcoholContent: ""
-      }
-    }
   }
 
   handleNewKegSubmit = (event) => {
     event.preventDefault();
-    let newState = this.state;
-    console.log("handleNewKegSubmit props = ", this.props);
-    newState.keg.id = this.props.data.nextKegId;
-    newState.keg.key = this.props.data.nextKegId;
-    newState.keg.name = _name.value;
-    newState.keg.brand = _brand.value;
-    newState.keg.price = parseFloat(_price.value);
-    newState.keg.alcoholContent = parseFloat(_alcoholContent.value);
 
-    this.setState(newState);
-    this.props.onNewKeg(this.state.keg)
+    keg.id = this.props.data.nextKegId;
+    keg.name = _name.value;
+    keg.brand = _brand.value;
+    keg.price = parseFloat(_price.value);
+    keg.alcoholContent = parseFloat(_alcoholContent.value);
+
+    this.props.onNewKeg(keg);
+    this.handleResetData();
   };
+
+  handleResetData = () => {
+    _name = null;
+    _brand = null;
+    _price = null;
+    _alcoholContent = null;
+  }
 
   render() {
     return (
