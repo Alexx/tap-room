@@ -10,37 +10,28 @@ let _alcoholContent = null;
 class KegAddForm extends Component {
   constructor(props) {
     super(props);
+    this.state =
+    {
+      keg: {
+        kegName: "",
+        kegBrand: "",
+        kegPrice: "",
+        kegAlcohol: ""
+      }
+    }
   }
+
 
   handleNewTicketSubmission = (event) => {
     event.preventDefault();
-
-
-    const newKegData = this.props.kegData;
-    newKegData.push({
-      id: 999,
-      name: _name,
-      brand: _brand,
-      price: _price,
-      alcoholContent: _alcoholContent,
-      inventory: 124
-    });
-
-    this.setState(
-      {
-        kegData: newKegData
-      }
-    );
-
-    console.log(_name.value);
-    console.log(_brand.value);
-    console.log(_price.value);
-    console.log(_alcoholContent.value);
-    _name.value = '';
-    _brand.value = '';
-    _price.value = '';
-    _alcoholContent.value = '';
+    this.props.onNewKeg(this.stat.keg)
   };
+
+  handleUpdateNewKeg = (event) => {
+    let newState = this.state;
+    newState.newKeg = event.target.value;
+    this.setState(newState);
+  }
 
   render() {
     return (

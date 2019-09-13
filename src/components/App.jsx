@@ -49,6 +49,12 @@ class App extends Component {
     };
   }
 
+  handleNewKeg = (newKeg) => {
+    let newState = this.state;
+    newState.kegData.push(newKeg);
+    this.setState(newState);
+  }
+
   handleSellPint = (kegId) => {
     const newKegData = this.state.kegData;
     if (newKegData.find(x => x.id === kegId).inventory - 1 >= 0) {
@@ -70,7 +76,7 @@ class App extends Component {
             <Route exact path='/' render={() => <KegList kegData={this.state.kegData}/>}/>
             <Route exact path='/employee'
                    render={() => <KegListEmployee kegData={this.state.kegData} onSellPint={this.handleSellPint}/>}/>
-            <Route exact path='/keg_add' render={() => <KegAdd kegData={this.state.kegData}/>}/>
+            <Route exact path='/keg_add' render={() => <KegAdd onNewKeg={this.handleNewKeg} kegData={this.state.kegData}/>}/>
             <Route exact path='/keg_edit' component={KegEdit}/>
           </Switch>
         </Container>
