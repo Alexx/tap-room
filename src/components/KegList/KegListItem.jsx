@@ -20,7 +20,7 @@ const pintLow = {
 
 function KegListItemEmployee(props) {
   let style;
-  if (props.inventory <= 30) {
+  if (props.inventory <= 10) {
     style = pintLow;
   } else {
     style = pintNormal;

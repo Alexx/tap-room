@@ -14,6 +14,7 @@ let myStyle = {
 };
 
 function KegListEmployee(props) {
+  console.log(props);
   return (
     <div style={myStyle} className="Keg-list">
       <KegListTitleEmployee/>
@@ -25,9 +26,12 @@ function KegListEmployee(props) {
           price={keg.price}
           alcoholContent={keg.alcoholContent}
           inventory={keg.inventory}
+          onSellPint={props.onSellPint}
+          id={keg.id}
           key={index}
         />
       )}
+
       <KegListEmployeeButton/>
     </div>
   );

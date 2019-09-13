@@ -43,15 +43,23 @@ class App extends Component {
           brand: 'Twisties',
           price: 4.19,
           alcoholContent: 9,
-          inventory: 29
+          inventory: 10
         },
       ]
     };
   }
 
-  // handleSellPint = () => {
-  //   const updateInventory = this
-  // }
+  handleSellPint = (kegId) => {
+    const newKegData = this.state.kegData;
+    if (newKegData.find(x => x.id === kegId).inventory - 1 >= 0) {
+      newKegData.find(x => x.id === kegId).inventory = newKegData.find(x => x.id === kegId).inventory - 1;
+      this.setState(
+        {
+          kegData: newKegData
+        }
+      );
+    }
+  };
 
   render() {
     return (
@@ -60,7 +68,8 @@ class App extends Component {
         <Container>
           <Switch>
             <Route exact path='/' render={() => <KegList kegData={this.state.kegData}/>}/>
-            <Route exact path='/employee' render={() => <KegListEmployee kegData={this.state.kegData}/>}/>
+            <Route exact path='/employee'
+                   render={() => <KegListEmployee kegData={this.state.kegData} onSellPint={this.handleSellPint}/>}/>
             <Route exact path='/keg_add' component={KegAdd}/>
             <Route exact path='/keg_edit' component={KegEdit}/>
           </Switch>

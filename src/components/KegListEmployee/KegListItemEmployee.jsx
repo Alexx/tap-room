@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import KegListEmployeeButtonSell from './KegListEmployeeButtonSell';
 
 const itemStyle = {
   display: 'inline-block'
@@ -21,7 +21,7 @@ const pintLow = {
 
 function KegListItem(props) {
   let style;
-  if (props.inventory <= 30) {
+  if (props.inventory <= 10) {
     style = pintLow;
   } else {
     style = pintNormal;
@@ -37,7 +37,7 @@ function KegListItem(props) {
       </div>
       <div style={pintStyle}>
         Pints: <span style={style}>{props.inventory}</span>/124<br/>
-        <Button href="/keg_edit" className="edit-button" variant="dark">Edit</Button>
+        <KegListEmployeeButtonSell id={props.id} onSellPint={props.onSellPint}/>
       </div>
       <hr/>
     </div>
