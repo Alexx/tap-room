@@ -6,7 +6,7 @@ import SiteLogo from './SiteLogo';
 
 function UserNav(){
 
-  var myStyle = {
+  let myStyle = {
     background: 'none'
   };
 
