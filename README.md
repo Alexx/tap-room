@@ -6,7 +6,7 @@
 
 ## Description
 
-_A React web app that allows patrons to view available beers on tap and allows employees to add and edit existing kegs._
+_A React web app that allows patrons to view available beers on tap and allows employees to add and edit existing kegs and sell pints._
 
 ## React version
 16.9.0
