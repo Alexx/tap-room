@@ -70,7 +70,7 @@ class App extends Component {
             <Route exact path='/' render={() => <KegList kegData={this.state.kegData}/>}/>
             <Route exact path='/employee'
                    render={() => <KegListEmployee kegData={this.state.kegData} onSellPint={this.handleSellPint}/>}/>
-            <Route exact path='/keg_add' component={KegAdd}/>
+            <Route exact path='/keg_add' render={() => <KegAdd kegData={this.state.kegData}/>}/>
             <Route exact path='/keg_edit' component={KegEdit}/>
           </Switch>
         </Container>

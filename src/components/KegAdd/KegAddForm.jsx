@@ -1,65 +1,84 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function KegAddForm() {
-  let _name = null;
-  let _brand = null;
-  let _price = null;
-  let _alcoholContent = null;
+let _name = null;
+let _brand = null;
+let _price = null;
+let _alcoholContent = null;
 
-
-  // handleNewTicketSubmission = (event) => {
-  //   event.preventDefault();
-  //   console.log(_name);
-  //   console.log(_brand);
-  //   console.log(_price);
-  //   console.log(_alcoholContent);
-  // }
-
-  function handleNewTicketSubmission(event) {
-    event.preventDefault();
-    console.log(_name);
-    console.log(_brand);
-    console.log(_price);
-    console.log(_alcoholContent);
+class KegAddForm extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  return (
-    <Form onSubmit={handleNewTicketSubmission}>
-      <Form.Group>
-        <Form.Label>Name</Form.Label>
-        <Form.Control id="name" ref={(input) => {
-          _name = input;
-        }} type="text" placeholder="Enter name"/>
-      </Form.Group>
+  handleNewTicketSubmission = (event) => {
+    event.preventDefault();
 
-      <Form.Group>
-        <Form.Label>Brand</Form.Label>
-        <Form.Control id="brand" ref={(input) => {
-          _brand = input;
-        }} type="text" placeholder="Enter brand"/>
-      </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Price</Form.Label>
-        <Form.Control id="price" ref={(input) => {
-          _price = input;
-        }} type="number" step="0.01" placeholder="Enter price"/>
-      </Form.Group>
+    const newKegData = this.props.kegData;
+    newKegData.push({
+      id: 999,
+      name: _name,
+      brand: _brand,
+      price: _price,
+      alcoholContent: _alcoholContent,
+      inventory: 124
+    });
 
-      <Form.Group>
-        <Form.Label>Alcohol Content %</Form.Label>
-        <Form.Control id="alcoholContent" ref={(input) => {
-          _alcoholContent = input;
-        }} type="number" step="0.01" placeholder="Enter alcohol content"/>
-      </Form.Group>
+    this.setState(
+      {
+        kegData: newKegData
+      }
+    );
 
-      <Button variant="dark" type="submit">
-        Submit
-      </Button>
-    </Form>
-  );
+    console.log(_name.value);
+    console.log(_brand.value);
+    console.log(_price.value);
+    console.log(_alcoholContent.value);
+    _name.value = '';
+    _brand.value = '';
+    _price.value = '';
+    _alcoholContent.value = '';
+  };
+
+  render() {
+    return (
+      <Form onSubmit={this.handleNewTicketSubmission}>
+        <Form.Group>
+          <Form.Label>Name</Form.Label>
+          <Form.Control id="name" ref={(input) => {
+            _name = input;
+          }} type="text" placeholder="Enter name"/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Brand</Form.Label>
+          <Form.Control id="brand" ref={(input) => {
+            _brand = input;
+          }} type="text" placeholder="Enter brand"/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Price</Form.Label>
+          <Form.Control id="price" ref={(input) => {
+            _price = input;
+          }} type="number" step="0.01" placeholder="Enter price"/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Alcohol Content %</Form.Label>
+          <Form.Control id="alcoholContent" ref={(input) => {
+            _alcoholContent = input;
+          }} type="number" step="0.01" placeholder="Enter alcohol content"/>
+        </Form.Group>
+
+        <Button variant="dark" type="submit">
+          Submit
+        </Button>
+      </Form>
+    );
+  }
 }
 
 export default KegAddForm;
