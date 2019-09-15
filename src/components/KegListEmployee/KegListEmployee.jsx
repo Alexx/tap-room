@@ -28,6 +28,7 @@ function KegListEmployee(props) {
           alcoholContent={keg.alcoholContent}
           inventory={keg.inventory}
           key={keg.id}
+          onSellPint={props.onSellPint}
         />
       )}
 

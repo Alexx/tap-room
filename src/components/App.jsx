@@ -62,7 +62,6 @@ class App extends Component {
       };
     });
     console.log(this.state.kegData);
-    console.log(this.state.newKeg);
   };
 
   handleNewKegValue = (newKeg) => {
