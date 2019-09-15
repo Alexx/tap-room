@@ -19,12 +19,13 @@ function KegList(props) {
       <hr/>
       {props.kegData.map((keg, index) =>
         <KegListItem
+          id={keg.id}
           name={keg.name}
           brand={keg.brand}
           price={keg.price}
           alcoholContent={keg.alcoholContent}
           inventory={keg.inventory}
-          key={index}
+          key={keg.id}
         />
       )}
     </div>

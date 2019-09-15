@@ -21,14 +21,13 @@ function KegListEmployee(props) {
       <hr/>
       {props.kegData.map((keg, index) =>
         <KegListItemEmployee
+          id={keg.id}
           name={keg.name}
           brand={keg.brand}
           price={keg.price}
           alcoholContent={keg.alcoholContent}
           inventory={keg.inventory}
-          onSellPint={props.onSellPint}
-          id={keg.id}
-          key={index}
+          key={keg.id}
         />
       )}
 

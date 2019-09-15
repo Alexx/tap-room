@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      newKeg: '',
       nextKegId: 5,
       kegData: [
         {
@@ -50,12 +51,23 @@ class App extends Component {
     };
   }
 
-  handleNewKeg = (newKeg) => {
-    let newState = this.state.kegData.slice();
-    newState.push(newKeg);
-    newState.nextKegId++;
-    this.setState(newState);
-    console.log(this.state);
+  handleNewKeg = () => {
+    const newKegId = this.state.nextKegId + 1;
+    this.setState(state => {
+      const kegData = state.kegData.concat(state.newKeg);
+      return {
+        kegData,
+        newKeg: '',
+        nextKegId: newKegId
+      };
+    });
+    console.log(this.state.kegData);
+    console.log(this.state.newKeg);
+  };
+
+  handleNewKegValue = (newKeg) => {
+    const addKeg = newKeg
+    this.setState({newKeg: addKeg});
   }
 
   handleSellPint = (kegId) => {
@@ -79,7 +91,7 @@ class App extends Component {
             <Route exact path='/' render={() => <KegList kegData={this.state.kegData}/>}/>
             <Route exact path='/employee'
               render={() => <KegListEmployee kegData={this.state.kegData} onSellPint={this.handleSellPint}/>}/>
-            <Route exact path='/keg_add' render={() => <KegAdd onNewKeg={this.handleNewKeg} data={this.state}/>}/>
+            <Route exact path='/keg_add' render={() => <KegAdd onNewKeg={this.handleNewKeg} onNewKegValue={this.handleNewKegValue} data={this.state}/>}/>
             <Route exact path='/keg_edit' component={KegEdit}/>
           </Switch>
         </Container>

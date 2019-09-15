@@ -11,7 +11,8 @@ let keg = {
   name: "",
   brand: "",
   price: "",
-  alcoholContent: ""
+  alcoholContent: "",
+  inventory: 144
 }
 
 class KegAddForm extends Component {
@@ -21,14 +22,15 @@ class KegAddForm extends Component {
 
   handleNewKegSubmit = (event) => {
     event.preventDefault();
-
+    console.log("This is my id", this.props.data.nextKegId);
     keg.id = this.props.data.nextKegId;
     keg.name = _name.value;
     keg.brand = _brand.value;
     keg.price = parseFloat(_price.value);
     keg.alcoholContent = parseFloat(_alcoholContent.value);
 
-    this.props.onNewKeg(keg);
+    this.props.onNewKegValue(keg);
+    this.props.onNewKeg();
     this.handleResetData();
   };
 
@@ -37,6 +39,14 @@ class KegAddForm extends Component {
     _brand = null;
     _price = null;
     _alcoholContent = null;
+    keg = {
+      id: "",
+      name: "",
+      brand: "",
+      price: "",
+      alcoholContent: "",
+      inventory: 144
+    }
   }
 
   render() {
