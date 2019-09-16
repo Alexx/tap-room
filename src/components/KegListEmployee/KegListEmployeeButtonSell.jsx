@@ -20,7 +20,7 @@ function KegListTitleEmployee(props) {
   return (
     <ul style={myStyle}>
       <li><Button onClick={() => dispatch(sellPint(props.id))} style={buttonStyle} variant="dark">Sell</Button></li>
-      <li><Button className="edit-button" variant="dark"><Link to="/keg_edit"> Edit </Link></Button></li>
+      <li><Link to="/keg_edit"><Button className="edit-button" variant="dark"> Edit </Button></Link></li>
     </ul>
 
   );

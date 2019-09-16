@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { add } from '../../actions';
 
 let _name = null;
 let _brand = null;
@@ -15,26 +17,22 @@ let keg = {
   inventory: 144
 }
 
-class KegAddForm extends Component {
-  constructor(props) {
-    super(props);
-  }
+function KegAddForm() {
+  const dispatch = useDispatch();
+  const nextKegId = useSelector(state => state.nextKegId);
 
-  handleNewKegSubmit = (event) => {
+  const handleNewKegSubmit = (event) => {
     event.preventDefault();
-    console.log("This is my id", this.props.data.nextKegId);
-    keg.id = this.props.data.nextKegId;
+    keg.id = nextKegId;
     keg.name = _name.value;
     keg.brand = _brand.value;
     keg.price = parseFloat(_price.value);
     keg.alcoholContent = parseFloat(_alcoholContent.value);
-
-    this.props.onNewKegValue(keg);
-    this.props.onNewKeg();
+    dispatch(add(keg));
     this.handleResetData();
   };
 
-  handleResetData = () => {
+  const handleResetData = () => {
     _name = null;
     _brand = null;
     _price = null;
@@ -49,9 +47,8 @@ class KegAddForm extends Component {
     }
   }
 
-  render() {
     return (
-      <Form onSubmit={this.handleNewKegSubmit}>
+      <Form onSubmit={() => handleNewKegSubmit()}>
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control id="name" ref={(input) => {
@@ -85,7 +82,6 @@ class KegAddForm extends Component {
         </Button>
       </Form>
     );
-  }
 }
 
 export default KegAddForm;

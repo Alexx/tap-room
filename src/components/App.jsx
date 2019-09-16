@@ -7,10 +7,8 @@ import KegList from './KegList/KegList';
 import KegListEmployee from './KegListEmployee/KegListEmployee';
 import KegAdd from './KegAdd/KegAdd';
 import KegEdit from './KegEdit/KegEdit';
-import { useSelector } from 'react-redux';
 
 function App() {
-  const kegData = useSelector(state => state.kegData);
 
     return (
       <div className="App">

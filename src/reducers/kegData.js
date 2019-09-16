@@ -1,6 +1,4 @@
-let newKeg = '';
-
-let nextKegId = 5;
+import newKeg from './newKeg';
 
 const kegData = [
   {
@@ -76,23 +74,18 @@ const kegDataReducer = (state = kegData, action) => {
   switch (action.type){
 
     case 'ADD':
-      // const newKegId = this.state.nextKegId + 1;
-        const newKegData = kegData.concat(state.newKeg);
-        return {
-          kegData,
-          newKeg: '',
-          nextKegId: newKegId
-        };
-      console.log(this.state.kegData);
+      console.log("I'm adding shit");
+      const newAddKeg = kegData.concat(action.payload);
+      state = newAddKeg;
       return state
 
     case 'SELL_PINT':
       const newKegData = kegData;
-        if (newKegData.find(x => x.id === action.payload).inventory - 1 >= 0) {
-          newKegData.find(x => x.id === action.payload).inventory = newKegData.find(x => x.id === action.payload).inventory - 1;
-          state = newKegData
-        }
-        return state
+      if (newKegData.find(x => x.id === action.payload).inventory - 1 >= 0) {
+        newKegData.find(x => x.id === action.payload).inventory = newKegData.find(x => x.id === action.payload).inventory - 1;
+        state = newKegData
+      }
+      return state
 
     default:
       return state

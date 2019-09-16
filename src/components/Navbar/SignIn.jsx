@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 function SignIn() {
   return (
     <DropdownButton variant="info" id="dropdown-basic-button" title="Sign In">
-      <Dropdown.Item><Link to="/"> Patron </Link></Dropdown.Item>
-      <Dropdown.Item><Link to="/employee"> Employee </Link></Dropdown.Item>
+      <Link className="dropdown-item" role="button" to="/"> Patron </Link>
+      <Link className="dropdown-item" role="button" to="/employee"> Employee </Link>
     </DropdownButton>
   );
 }

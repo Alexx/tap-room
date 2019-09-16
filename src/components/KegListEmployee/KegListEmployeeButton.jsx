@@ -10,7 +10,7 @@ const buttonStyle = {
 
 function KegListTitleEmployee() {
   return (
-    <Button style={buttonStyle} variant="dark"><Link to="/keg_add"> Add </Link></Button>
+    <Link to="/keg_add"><Button style={buttonStyle} variant="dark"> Add </Button></Link>
   );
 }
 
