@@ -1,6 +1,7 @@
 import React from 'react';
 import KegListTitle from './KegListTitle';
 import KegListItem from './KegListItem';
+import { useSelector } from 'react-redux';
 
 const myStyle = {
   borderRadius: '40px',
@@ -12,12 +13,13 @@ const myStyle = {
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3)'
 };
 
-function KegList(props) {
+function KegList() {
+  const kegData = useSelector(state => state.kegData);
   return (
     <div style={myStyle} className="Keg-list">
       <KegListTitle/>
       <hr/>
-      {props.kegData.map((keg, index) =>
+      {kegData.map((keg, index) =>
         <KegListItem
           id={keg.id}
           name={keg.name}

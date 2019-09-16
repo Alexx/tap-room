@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const buttonStyle = {
   marginRight: 'auto',
@@ -9,9 +10,8 @@ const buttonStyle = {
 
 function KegListTitleEmployee() {
   return (
-    <Button href="/keg_add" style={buttonStyle} variant="dark">Add</Button>
+    <Button style={buttonStyle} variant="dark"><Link to="/keg_add"> Add </Link></Button>
   );
 }
 
 export default KegListTitleEmployee;
-
