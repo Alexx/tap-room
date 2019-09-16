@@ -21,16 +21,18 @@ function KegAddForm() {
   const dispatch = useDispatch();
   const nextKegId = useSelector(state => state.nextKegId);
 
-  const handleNewKegSubmit = (event) => {
-    event.preventDefault();
-    keg.id = nextKegId;
-    keg.name = _name.value;
-    keg.brand = _brand.value;
-    keg.price = parseFloat(_price.value);
-    keg.alcoholContent = parseFloat(_alcoholContent.value);
-    dispatch(add(keg));
-    this.handleResetData();
-  };
+
+  function handleSubmit(e) {
+  e.preventDefault();
+  console.log("Stuff");
+  keg.id = nextKegId;
+  keg.name = _name.value;
+  keg.brand = _brand.value;
+  keg.price = parseFloat(_price.value);
+  keg.alcoholContent = parseFloat(_alcoholContent.value);
+  dispatch(add(keg));
+  handleResetData();
+}
 
   const handleResetData = () => {
     _name = null;
@@ -48,7 +50,7 @@ function KegAddForm() {
   }
 
     return (
-      <Form onSubmit={() => handleNewKegSubmit()}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control id="name" ref={(input) => {

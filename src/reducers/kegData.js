@@ -75,8 +75,9 @@ const kegDataReducer = (state = kegData, action) => {
 
     case 'ADD':
       console.log("I'm adding shit");
-      const newAddKeg = kegData.concat(action.payload);
-      state = newAddKeg;
+      kegData.push(action.payload);
+      state = kegData;
+      console.log("Hi, I'm state.", state);
       return state
 
     case 'SELL_PINT':
