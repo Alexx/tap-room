@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { add } from '../../actions';
+import { push } from 'react-router-redux';
+import { add, increment } from '../../actions';
+import { Link } from 'react-router-dom';
 
 let _name = null;
 let _brand = null;
@@ -14,25 +16,25 @@ let keg = {
   brand: "",
   price: "",
   alcoholContent: "",
-  inventory: 144
+  inventory: 124
 }
 
 function KegAddForm() {
+
   const dispatch = useDispatch();
   const nextKegId = useSelector(state => state.nextKegId);
 
-
-  function handleSubmit(e) {
-  e.preventDefault();
-  console.log("Stuff");
-  keg.id = nextKegId;
-  keg.name = _name.value;
-  keg.brand = _brand.value;
-  keg.price = parseFloat(_price.value);
-  keg.alcoholContent = parseFloat(_alcoholContent.value);
-  dispatch(add(keg));
-  handleResetData();
-}
+    function handleSubmit(e) {
+    e.preventDefault();
+    keg.id = nextKegId;
+    keg.name = _name.value;
+    keg.brand = _brand.value;
+    keg.price = parseFloat(_price.value);
+    keg.alcoholContent = parseFloat(_alcoholContent.value);
+    dispatch(add(keg));
+    dispatch(increment());
+    handleResetData();
+  }
 
   const handleResetData = () => {
     _name = null;
@@ -45,7 +47,7 @@ function KegAddForm() {
       brand: "",
       price: "",
       alcoholContent: "",
-      inventory: 144
+      inventory: 124
     }
   }
 
@@ -78,10 +80,9 @@ function KegAddForm() {
             _alcoholContent = input;
           }} type="number" step="0.01" placeholder="Enter alcohol content"/>
         </Form.Group>
-
-        <Button variant="dark" type="submit">
-          Submit
-        </Button>
+          <Button variant="dark" type="submit">
+            Submit
+          </Button>
       </Form>
     );
 }
