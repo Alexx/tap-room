@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { push } from 'react-router-redux';
+import { add, increment } from '../../actions';
+import { Link } from 'react-router-dom';
 
 let _name = null;
 let _brand = null;
@@ -12,29 +16,27 @@ let keg = {
   brand: "",
   price: "",
   alcoholContent: "",
-  inventory: 144
+  inventory: 124
 }
 
-class KegAddForm extends Component {
-  constructor(props) {
-    super(props);
-  }
+function KegAddForm() {
 
-  handleNewKegSubmit = (event) => {
-    event.preventDefault();
-    console.log("This is my id", this.props.data.nextKegId);
-    keg.id = this.props.data.nextKegId;
+  const dispatch = useDispatch();
+  const nextKegId = useSelector(state => state.nextKegId);
+
+    function handleSubmit(e) {
+    e.preventDefault();
+    keg.id = nextKegId;
     keg.name = _name.value;
     keg.brand = _brand.value;
     keg.price = parseFloat(_price.value);
     keg.alcoholContent = parseFloat(_alcoholContent.value);
+    dispatch(add(keg));
+    dispatch(increment());
+    handleResetData();
+  }
 
-    this.props.onNewKegValue(keg);
-    this.props.onNewKeg();
-    this.handleResetData();
-  };
-
-  handleResetData = () => {
+  const handleResetData = () => {
     _name = null;
     _brand = null;
     _price = null;
@@ -45,13 +47,12 @@ class KegAddForm extends Component {
       brand: "",
       price: "",
       alcoholContent: "",
-      inventory: 144
+      inventory: 124
     }
   }
 
-  render() {
     return (
-      <Form onSubmit={this.handleNewKegSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control id="name" ref={(input) => {
@@ -79,13 +80,11 @@ class KegAddForm extends Component {
             _alcoholContent = input;
           }} type="number" step="0.01" placeholder="Enter alcohol content"/>
         </Form.Group>
-
-        <Button variant="dark" type="submit">
-          Submit
-        </Button>
+          <Button variant="dark" type="submit">
+            Submit
+          </Button>
       </Form>
     );
-  }
 }
 
 export default KegAddForm;

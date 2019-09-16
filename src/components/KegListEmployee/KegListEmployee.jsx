@@ -2,6 +2,7 @@ import React from 'react';
 import KegListTitleEmployee from './KegListTitleEmployee';
 import KegListItemEmployee from './KegListItemEmployee';
 import KegListEmployeeButton from './KegListEmployeeButton';
+import { useSelector } from 'react-redux';
 
 let myStyle = {
   borderRadius: '40px',
@@ -13,13 +14,13 @@ let myStyle = {
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3)'
 };
 
-function KegListEmployee(props) {
-  console.log(props);
+function KegListEmployee() {
+  const kegData = useSelector(state => state.kegData);
   return (
     <div style={myStyle} className="Keg-list">
       <KegListTitleEmployee/>
       <hr/>
-      {props.kegData.map((keg, index) =>
+      {kegData.map((keg, index) =>
         <KegListItemEmployee
           id={keg.id}
           name={keg.name}
@@ -28,7 +29,6 @@ function KegListEmployee(props) {
           alcoholContent={keg.alcoholContent}
           inventory={keg.inventory}
           key={keg.id}
-          onSellPint={props.onSellPint}
         />
       )}
 
