@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { useSelector, useDispatch } from 'react-redux';
-import { push } from 'react-router-redux';
-import { add, increment } from '../../actions';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { push } from "react-router-redux";
+import { add, increment } from "../../actions";
+import { Link, Redirect } from "react-router-dom";
+import $ from "jquery";
 
 let _name = null;
 let _brand = null;
@@ -17,14 +18,13 @@ let keg = {
   price: "",
   alcoholContent: "",
   inventory: 124
-}
+};
 
-function KegAddForm() {
-
+function KegAddForm(props) {
   const dispatch = useDispatch();
   const nextKegId = useSelector(state => state.nextKegId);
 
-    function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     keg.id = nextKegId;
     keg.name = _name.value;
@@ -34,6 +34,7 @@ function KegAddForm() {
     dispatch(add(keg));
     dispatch(increment());
     handleResetData();
+    $("#hahaha")[0].click();
   }
 
   const handleResetData = () => {
@@ -48,43 +49,68 @@ function KegAddForm() {
       price: "",
       alcoholContent: "",
       inventory: 124
-    }
-  }
+    };
+  };
 
-    return (
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label>Name</Form.Label>
-          <Form.Control id="name" ref={(input) => {
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          id="name"
+          ref={input => {
             _name = input;
-          }} type="text" placeholder="Enter name"/>
-        </Form.Group>
+          }}
+          type="text"
+          placeholder="Enter name"
+        />
+      </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Brand</Form.Label>
-          <Form.Control id="brand" ref={(input) => {
+      <Form.Group>
+        <Form.Label>Brand</Form.Label>
+        <Form.Control
+          id="brand"
+          ref={input => {
             _brand = input;
-          }} type="text" placeholder="Enter brand"/>
-        </Form.Group>
+          }}
+          type="text"
+          placeholder="Enter brand"
+        />
+      </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Price</Form.Label>
-          <Form.Control id="price" ref={(input) => {
+      <Form.Group>
+        <Form.Label>Price</Form.Label>
+        <Form.Control
+          id="price"
+          ref={input => {
             _price = input;
-          }} type="number" step="0.01" placeholder="Enter price"/>
-        </Form.Group>
+          }}
+          type="number"
+          step="0.01"
+          placeholder="Enter price"
+        />
+      </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Alcohol Content %</Form.Label>
-          <Form.Control id="alcoholContent" ref={(input) => {
+      <Form.Group>
+        <Form.Label>Alcohol Content %</Form.Label>
+        <Form.Control
+          id="alcoholContent"
+          ref={input => {
             _alcoholContent = input;
-          }} type="number" step="0.01" placeholder="Enter alcohol content"/>
-        </Form.Group>
-          <Button variant="dark" type="submit">
-            Submit
-          </Button>
-      </Form>
-    );
+          }}
+          type="number"
+          step="0.01"
+          placeholder="Enter alcohol content"
+        />
+      </Form.Group>
+      <Button variant="dark" type="submit">
+        Submit
+      </Button>
+      <Link id="hahaha" to="/employee" style={{ display: "none" }}>
+        Ha ha ha
+      </Link>
+    </Form>
+  );
 }
 
 export default KegAddForm;
