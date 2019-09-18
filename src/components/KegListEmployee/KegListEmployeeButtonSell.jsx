@@ -31,14 +31,6 @@ function KegListTitleEmployee(props) {
           Sell
         </Button>
       </li>
-      <li>
-        <Link to="/keg_edit">
-          <Button className="edit-button" variant="dark">
-            {" "}
-            Edit{" "}
-          </Button>
-        </Link>
-      </li>
     </ul>
   );
 }
