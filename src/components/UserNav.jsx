@@ -19,9 +19,9 @@ function UserNav() {
 
   return (
     <Navbar style={myStyle} expand="lg">
-      <Navbar.Brand href="/">
+      <Link className="navbar-brand" to="/">
         <Image style={myLogo} src={Logo} rounded />
-      </Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"></Nav>

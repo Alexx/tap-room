@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { push } from "react-router-redux";
 import { add, increment } from "../../actions";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import $ from "jquery";
 
 let _name = null;
